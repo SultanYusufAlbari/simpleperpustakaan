@@ -1,0 +1,38 @@
+Tutorial Penggunaan
+1. CREATE DATABASE perpustakaan;
+2. -- Tabel Anggota
+CREATE TABLE anggota (
+    id_anggota INT PRIMARY KEY AUTO_INCREMENT,
+    nama VARCHAR(100),
+    alamat VARCHAR(100),
+    kota VARCHAR(50),
+    no_telephone VARCHAR(20),
+    tanggal_lahir DATE
+);
+
+-- Tabel Buku
+CREATE TABLE buku (
+    no_buku INT PRIMARY KEY AUTO_INCREMENT,
+    judul VARCHAR(100),
+    pengarang VARCHAR(100),
+    tahun_terbit INT,
+    jenis_buku VARCHAR(50),
+    status ENUM('Tersedia', 'Dipinjam')
+);
+
+-- Tabel Pinjam
+CREATE TABLE pinjam (
+    no_pinjam INT PRIMARY KEY AUTO_INCREMENT,
+    id_anggota INT,
+    no_buku INT,
+    FOREIGN KEY (id_anggota) REFERENCES anggota(id_anggota),
+    FOREIGN KEY (no_buku) REFERENCES buku(no_buku),
+    tanggal_pinjam DATE,
+    tanggal_kembali DATE
+);
+
+3. Jangan Lupa Sesuaikan Nama Database, Username, Password, Dan Hostnya "Localhost" aja ya!
+4. Tutorial Penggunaan, ya seperti biasa, tinggal masukkan data yang ingin di insert ke database didalem parameter function ya;
+5. Ini Sederhana, jadi gaperlu ribet ya.
+6. Untuk Run cukup php index.php 
+7. Sekian Terima Kasih. Semoga bermanfaat
